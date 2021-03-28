@@ -12,5 +12,6 @@ namespace TravelAgency.Models
         public string Description { get; set; }
         public string type { get; set; }
         public int Category { get; set; }
+        public decimal Price { get; set; }
     }
 }

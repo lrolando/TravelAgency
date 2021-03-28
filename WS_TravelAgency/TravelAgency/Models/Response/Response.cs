@@ -7,15 +7,15 @@ namespace TravelAgency.Models.Response
 {
     public class Response
     {
-        public int Exito { get; set; }
+        public int Exit { get; set; }
 
-        public string Mensaje { get; set; }
+        public string Message { get; set; }
 
         public object Data { get; set; }
 
         public Response()
         {
-            this.Exito = 0;
+            this.Exit = 0;
         }
     }
 }
