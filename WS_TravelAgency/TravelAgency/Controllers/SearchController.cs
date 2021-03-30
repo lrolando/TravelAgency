@@ -6,45 +6,39 @@ using System.Linq;
 using System.Threading.Tasks;
 using TravelAgency.Models;
 using TravelAgency.Models.Response;
+using TravelAgency.Repositories;
 
 namespace TravelAgency.Controllers
 {
-    [Route("api/[controller]")]
+    
     [ApiController]
+    [Route("[controller]")]
     public class SearchController : ControllerBase
     {
-
-        //private readonly AppDBContexts contexts;
-
-        //public SearchController(AppDBContexts contexts)
-        //{
-        //    this.contexts = contexts;
-        //}
 
         [HttpGet]
         public IActionResult Get()
         {
             Response oRespuesta = new Response();
+            IEnumerable<Product>  lst = null;
             try
             {
-                using (AppDBContexts db = new AppDBContexts())
-                {
-                    //var lst = db.ListPackages.Add(from a in db.ListProduct
-                    //                              join s in db.ListPackage
-                    //                               on a.id equals s.id
-                    //                              select new CompletePackages
-                    //                              {
-                                                      
-                    //                              };
+                
+
+                    Packs pk = new Packs();
+                    lst = pk.PacksList();
+                    
+
                     oRespuesta.Exit = 1;
-                    //oRespuesta.Data = lst;
+                    oRespuesta.Data = lst;
          
-                }
+                
             }
             catch (Exception ex)
             {
                 oRespuesta.Message = ex.Message;
             }
+            
 
             return Ok(oRespuesta);
         }

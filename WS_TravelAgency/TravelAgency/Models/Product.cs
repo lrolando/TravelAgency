@@ -7,10 +7,10 @@ namespace TravelAgency.Models
 {
     public class Product
     {
-        public int id { get; set; }
-        public int idpackages { get; set; }
+        public int ID { get; set; }
+        public int IDPack { get; set; }
         public string Description { get; set; }
-        public string type { get; set; }
+        public string Type { get; set; }
         public int Category { get; set; }
         public decimal Price { get; set; }
     }

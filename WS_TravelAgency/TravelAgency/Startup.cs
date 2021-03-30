@@ -17,18 +17,18 @@ namespace TravelAgency
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration config)
         {
-            Configuration = configuration;
+            Config = config;
         }
 
-        public IConfiguration Configuration { get; }
+        public IConfiguration Config { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDBContexts>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
+            options.UseSqlServer(Config.GetConnectionString("ConnectionString")));
 
             services.AddControllers();
         }

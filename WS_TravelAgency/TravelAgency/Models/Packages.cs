@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 namespace TravelAgency.Models
 {
 
-    public class Packages 
+    public class Packages : Product
     {
-        public int id { get; set; }
+        public int idPack { get; set; }
         public string Name { get; set; }
         
     }
 
     public class CompletePackages : Packages
     {
+        
         public ICollection<Product> ProductList { get; set; }
     }
 }
