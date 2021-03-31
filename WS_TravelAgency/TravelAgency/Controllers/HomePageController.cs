@@ -13,34 +13,34 @@ namespace TravelAgency.Controllers
     
     [ApiController]
     [Route("[controller]")]
-    public class SearchController : ControllerBase
+    public class HomePageController : ControllerBase
     {
 
         [HttpGet]
         public IActionResult Get()
         {
             Response oRespuesta = new Response();
-            IEnumerable<Product>  lst = null;
+            IEnumerable<Product> lst = null;
             try
             {
-                
 
-                    Packs pk = new Packs();
-                    lst = pk.PacksList();
-                    
+                GetList pk = new GetList();
+                lst = pk.prodlist();
 
-                    oRespuesta.Exit = 1;
-                    oRespuesta.Data = lst;
-         
-                
+
+                oRespuesta.Exit = 1;
+                oRespuesta.Data = lst;
+
             }
             catch (Exception ex)
             {
                 oRespuesta.Message = ex.Message;
             }
-            
+
 
             return Ok(oRespuesta);
         }
+
+
     }
 }
