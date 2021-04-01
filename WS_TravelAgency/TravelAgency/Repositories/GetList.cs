@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace TravelAgency.Repositories
 {
     public class GetList
     {
-        public IEnumerable<Product> prodlist()
+        public IEnumerable<Product> Prodlist()
         {
 
             IEnumerable<Product> Products;
@@ -17,27 +18,28 @@ namespace TravelAgency.Repositories
             {
 
                 Products = db.Product.ToList();
-
+            
             }
 
             return Products;
 
         }
 
-        public IEnumerable<Packages> PacksList()
+        public IEnumerable<Package> PacksList(string name)
         {
 
-            IEnumerable<Packages> Packages = null;
+            IEnumerable<Package> Packages = null;
 
             using (AppDBContexts db = new AppDBContexts())
             {
 
-                //PL = db.Packages.FromSqlInterpolated($"Select packages.NamePack, product.description, product.type, product.category, product.price from product full outer join packages on product.idpack = packages.id where (packages.NamePack like '%e%')").ToList();
+                //Packages = db.Packages.Include(P).ToList();
 
             }
 
             return Packages;
 
         }
+         
     }
 }

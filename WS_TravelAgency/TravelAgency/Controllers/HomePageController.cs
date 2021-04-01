@@ -24,8 +24,9 @@ namespace TravelAgency.Controllers
             try
             {
 
-                GetList pk = new GetList();
-                lst = pk.prodlist();
+                GetList ListaPacks = new GetList();
+                lst = ListaPacks.Prodlist().ToList();
+                
 
 
                 oRespuesta.Exit = 1;

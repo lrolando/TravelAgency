@@ -58,4 +58,3 @@ C:\Users\USER\Source\Repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgen
 C:\Users\USER\Source\Repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgency\obj\Debug\netcoreapp3.1\TravelAgency.dll
 C:\Users\USER\Source\Repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgency\obj\Debug\netcoreapp3.1\TravelAgency.pdb
 C:\Users\USER\Source\Repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgency\obj\Debug\netcoreapp3.1\TravelAgency.genruntimeconfig.cache
-C:\Users\USER\Source\Repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgency\obj\Debug\netcoreapp3.1\TravelAgency.csprojAssemblyReference.cache

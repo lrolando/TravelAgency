@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace TravelAgency.Models
 {
-    public class PackagesName
+    public partial class Package
     {
-        [Key]
-        public int id { get; set; }
+
+        public int IDPack { get; set; }
 
         public string Namepack { get; set; }
+
+        public ICollection<Product> Product { get; set; }
+        
     }
 }
