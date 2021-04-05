@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TravelAgency.Models;
 
-namespace TravelAgency.Models
+namespace TravelAgency.Repository
 {
     public partial class AppDBContexts : DbContext
     {
@@ -17,7 +18,7 @@ namespace TravelAgency.Models
 
         public DbSet<Product> Product { get; set; }
         public DbSet<Package> Packages { get; set; }
-
+        public DbSet<Client> Clients { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -33,15 +34,21 @@ namespace TravelAgency.Models
         {
             modelBuilder.Entity<Product>(entity =>
             {
-                entity.HasKey(e => e.ID);
+                entity.HasKey(e => e.ProductID);
 
                 entity.Property(e => e.Description)
+                    .IsRequired()
                     .HasMaxLength(250)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Type)
                     .IsRequired()
                     .HasMaxLength(15)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Category)
+                    .IsRequired()
+                    .HasMaxLength(5)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Price)
@@ -57,9 +64,20 @@ namespace TravelAgency.Models
 
             modelBuilder.Entity<Package>(entity =>
             {
-                entity.HasKey(e => e.IDPack);
+                entity.HasKey(e => e.PackageID);
                 
                 entity.Property(e => e.Namepack)
+                    .IsRequired()
+                    .HasMaxLength(15)
+                    .IsUnicode(false);
+
+            });
+
+            modelBuilder.Entity<Client>(entity =>
+            {
+                entity.HasKey(e => e.ClientID);
+
+                entity.Property(e => e.Type)
                     .IsRequired()
                     .HasMaxLength(15)
                     .IsUnicode(false);
@@ -71,16 +89,6 @@ namespace TravelAgency.Models
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Packages>().HasDiscriminator(b => b.packtype);
-
-        //    modelBuilder.Entity<Packages>()
-        //        .HasDiscriminator<string>("Packagetype")
-        //        .HasValue<Packages>("Packbase")
-        //        .HasValue<PackagesName>("Pack_n");
-
-        //}
-
+       
     }
 }

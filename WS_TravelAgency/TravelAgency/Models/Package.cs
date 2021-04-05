@@ -9,8 +9,7 @@ namespace TravelAgency.Models
     public partial class Package
     {
 
-        public int IDPack { get; set; }
-
+        public int PackageID { get; set; }
         public string Namepack { get; set; }
 
         public ICollection<Product> Product { get; set; }
