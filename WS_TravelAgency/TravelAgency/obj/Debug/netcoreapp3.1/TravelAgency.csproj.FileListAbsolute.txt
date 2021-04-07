@@ -48,6 +48,9 @@ C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgen
 C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgency\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgency\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgency\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgency\bin\Debug\netcoreapp3.1\DataAccess.dll
+C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgency\bin\Debug\netcoreapp3.1\DataAccess.pdb
+C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgency\obj\Debug\netcoreapp3.1\TravelAgency.csprojAssemblyReference.cache
 C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgency\obj\Debug\netcoreapp3.1\TravelAgency.AssemblyInfoInputs.cache
 C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgency\obj\Debug\netcoreapp3.1\TravelAgency.AssemblyInfo.cs
 C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgency\obj\Debug\netcoreapp3.1\TravelAgency.csproj.CoreCompileInputs.cache
@@ -60,4 +63,5 @@ C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgen
 C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgency\obj\Debug\netcoreapp3.1\TravelAgency.dll
 C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgency\obj\Debug\netcoreapp3.1\TravelAgency.pdb
 C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgency\obj\Debug\netcoreapp3.1\TravelAgency.genruntimeconfig.cache
-C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgency\obj\Debug\netcoreapp3.1\TravelAgency.csprojAssemblyReference.cache
+C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgency\bin\Debug\netcoreapp3.1\RulesBusiness.dll
+C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TravelAgency\bin\Debug\netcoreapp3.1\RulesBusiness.pdb

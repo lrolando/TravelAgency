@@ -1,24 +1,26 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using DataAccess.Models;
+using DataAccess.Models.Request;
+using DataAccess.Models.Response;
+using DataAccess.Repository;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TravelAgency.Models;
-using TravelAgency.Models.Response;
-using TravelAgency.Repository;
+using TravelAgency.RulesBusiness;
 
 namespace TravelAgency.Controllers
 {
     
     [ApiController]
-    [Route("[Controller]")]
+    [Route("[Controller]/[Action]")]
     public class HomePageController : ControllerBase
     {
         
         
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetTypeClient()
         {
             Response oResponse = new Response();
 
@@ -41,7 +43,7 @@ namespace TravelAgency.Controllers
 
 
         [HttpPost]
-        public IActionResult Post(Package name)
+        public IActionResult Post(PackageRequest name)
         {
             Response oResponse = new Response();
 
@@ -49,7 +51,7 @@ namespace TravelAgency.Controllers
             {
                 GetList ListaPacks = new GetList();
                 IEnumerable<Package> lst = ListaPacks.Packageslist(name.Namepack).ToList();
-                
+
                 oResponse.Exit = 1;
                 oResponse.Data = lst;
 
@@ -62,26 +64,29 @@ namespace TravelAgency.Controllers
             return Ok(oResponse);
         }
 
-        
-        //[HttpGet]
-        //public IActionResult Get(IEnumerable<Package> aa)
-        //{
-        //    Response oResponse = new Response();
 
-        //    try
-        //    {
-        //        //IEnumerable<Package> Pack
+        [HttpGet]
+        public IActionResult GetCommission(CommissionRequest Com)
+        {
+            Response oResponse = new Response();
 
-        //        oResponse.Exit = 1;
-        //        //oResponse.Data = Pack;
+            try
+            {
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        oResponse.Message = ex.Message;
-        //    }
+                CalculateCommission Comm = new CalculateCommission();
 
-        //    return Ok(oResponse);
-        //}
+                decimal commission = Comm.Commission(Com);
+                
+
+                oResponse.Exit = 1;
+                oResponse.Data = commission;
+            }
+            catch (Exception ex)
+            {
+                oResponse.Message = ex.Message;
+            }
+
+            return Ok(oResponse);
+        }
     }
 }

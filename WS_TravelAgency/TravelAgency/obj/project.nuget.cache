@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Bb9KSN0Cc5Yc/86a0AFdT9sm7RMYC2h52hoHeeiNOc39DSioAj3JUIE1Zws6g7nhofrbP94tpPuX300cmBFulQ==",
+  "dgSpecHash": "KRUE0dw5LNxVHZQ3dh2Qd6sxmUXbcCZn54ykZYrrReLz/Z9cwFirtGj2brjSi/VoyOry+AugmHqQfj9+OjUuZQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\USER\\source\\repos\\glb-bootcamp-net-lsrolando\\WS_TravelAgency\\TravelAgency\\TravelAgency.csproj",
   "expectedPackageFiles": [
@@ -14,7 +14,6 @@
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.4\\microsoft.entityframeworkcore.design.5.0.4.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.4\\microsoft.entityframeworkcore.relational.5.0.4.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.4\\microsoft.entityframeworkcore.sqlserver.5.0.4.nupkg.sha512",
-    "C:\\Users\\USER\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.4\\microsoft.entityframeworkcore.tools.5.0.4.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",

@@ -1,0 +1,12 @@
+C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\RulesBusiness\bin\Debug\netcoreapp3.1\RulesBusiness.deps.json
+C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\RulesBusiness\bin\Debug\netcoreapp3.1\RulesBusiness.dll
+C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\RulesBusiness\bin\Debug\netcoreapp3.1\RulesBusiness.pdb
+C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\RulesBusiness\bin\Debug\netcoreapp3.1\DataAccess.dll
+C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\RulesBusiness\bin\Debug\netcoreapp3.1\DataAccess.pdb
+C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\RulesBusiness\obj\Debug\netcoreapp3.1\RulesBusiness.csprojAssemblyReference.cache
+C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\RulesBusiness\obj\Debug\netcoreapp3.1\RulesBusiness.AssemblyInfoInputs.cache
+C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\RulesBusiness\obj\Debug\netcoreapp3.1\RulesBusiness.AssemblyInfo.cs
+C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\RulesBusiness\obj\Debug\netcoreapp3.1\RulesBusiness.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\RulesBusiness\obj\Debug\netcoreapp3.1\RulesBusiness.csproj.CopyComplete
+C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\RulesBusiness\obj\Debug\netcoreapp3.1\RulesBusiness.dll
+C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\RulesBusiness\obj\Debug\netcoreapp3.1\RulesBusiness.pdb

@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using DataAccess.Models;
+using DataAccess.Models.Request;
+using DataAccess.Models.Response;
+using DataAccess.Repository;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TravelAgency.Models;
-using TravelAgency.Models.Response;
-using TravelAgency.Repository;
+
 
 namespace TravelAgency.Controllers
 {
@@ -17,7 +19,7 @@ namespace TravelAgency.Controllers
     {
 
         [HttpGet]
-        public IActionResult Get(Package id)
+        public IActionResult Get(PackageRequest id)
         {
             Response oRespuesta = new Response();
 
