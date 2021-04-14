@@ -1,23 +1,21 @@
-﻿using DataAccess.Models.Request;
+﻿using DataAccess.Models.DTO;
 using DataAccess.Repository;
 using RulesBusiness.Commission.TypeOfClient;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace TravelAgency.RulesBusiness
 {
     public class CalculateCommission
     {
-        public decimal Commission(CommissionRequest Com)
+        public async Task<CommissionResult> Commission(CommissionRequest Com)
         {
-            CommissionIndividual ComInd = new CommissionIndividual();
-            CommissionCorporate ComCor = new CommissionCorporate();
+            //CommissionIndividual ComInd = new CommissionIndividual();
+            //CommissionCorporate ComCor = new CommissionCorporate();
           
-            GetList ListaPacks = new GetList();
+            GetFromDB ListaPacks = new GetFromDB();
 
-            var Products = ListaPacks.CommissionProductlist(Com.Packages);
+            var Products = await ListaPacks.Productlist(Com.Packages);
 
             decimal commission = 0;
 
@@ -28,15 +26,15 @@ namespace TravelAgency.RulesBusiness
                     switch (item.Type)
                     {
                         case "Hotel":
-                            { commission = commission + ComInd.Hotel(item.Price, Com.Duration); };
+                            { commission = commission + CommissionIndividual.Hotel(item.Price, Com.Duration); };
                             break;
 
                         case "RentCar":
-                            { commission = commission + ComInd.RentCar(item.Price, item.Category); };
+                            { commission = commission + CommissionIndividual.RentCar(item.Price, Convert.ToInt32(item.Category)); };
                             break;
 
                         case "Ticket":
-                            { commission = commission + ComInd.Ticket(item.Price); };
+                            { commission = commission + CommissionIndividual.Ticket(item.Price); };
                             break;
 
                         default:
@@ -52,15 +50,15 @@ namespace TravelAgency.RulesBusiness
                     switch (item.Type)
                     {
                         case "Hotel":
-                            { commission = commission + ComCor.Hotel(item.Price, Com.Duration); };
+                            { commission = commission + CommissionCorporate.Hotel(item.Price, Com.Duration); };
                             break;
 
                         case "RentCar":
-                            { commission = commission + ComCor.RentCar(item.Price, Com.Duration);};
+                            { commission = commission + CommissionCorporate.RentCar(item.Price, Com.Duration);};
                             break;
 
                         case "Ticket":
-                            { commission = commission + ComCor.Ticket(item.Price);};
+                            { commission = commission + CommissionCorporate.Ticket(item.Price);};
                             break;
 
                         default:
@@ -71,7 +69,11 @@ namespace TravelAgency.RulesBusiness
                 commission = (commission * Com.Passengers)/10;
             }
 
-            return commission;
+            CommissionResult cr = new CommissionResult();
+
+            cr.Message = "Your commission is $" + commission.ToString();
+
+            return cr;
         }
     }
 }

@@ -1,12 +1,11 @@
 ﻿using DataAccess.Models;
-using DataAccess.Models.Request;
+using DataAccess.Models.DTO;
 using DataAccess.Models.Response;
 using DataAccess.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using TravelAgency.RulesBusiness;
 
@@ -17,17 +16,16 @@ namespace TravelAgency.Controllers
     [Route("[Controller]/[Action]")]
     public class HomePageController : ControllerBase
     {
-        
-        
+
         [HttpGet]
-        public IActionResult GetTypeClient()
+        public async Task<IActionResult> ClientTypes()
         {
             Response oResponse = new Response();
-
+            IEnumerable<ClientType> lst = null;
             try
             {
-                GetList ListaPacks = new GetList();
-                IEnumerable<Client> lst = ListaPacks.Types().ToList();
+                GetFromDB ListaPacks = new GetFromDB();
+                lst = await ListaPacks.ClientTypes();
 
                 oResponse.Exit = 1;
                 oResponse.Data = lst;
@@ -38,19 +36,20 @@ namespace TravelAgency.Controllers
                 oResponse.Message = ex.Message;
             }
 
-            return Ok(oResponse);
+            return Ok(lst);
         }
 
 
         [HttpPost]
-        public IActionResult Post(PackageRequest name)
+        public async Task<IActionResult> PackagesByDescription([FromBody] Package package)
         {
             Response oResponse = new Response();
+            IEnumerable<Package> lst = null;
 
             try
             {
-                GetList ListaPacks = new GetList();
-                IEnumerable<Package> lst = ListaPacks.Packageslist(name.Namepack).ToList();
+                GetFromDB ListaPacks = new GetFromDB();
+                lst = await ListaPacks.Packageslist(package.Namepack);
 
                 oResponse.Exit = 1;
                 oResponse.Data = lst;
@@ -61,23 +60,21 @@ namespace TravelAgency.Controllers
                 oResponse.Message = ex.Message;
             }
 
-            return Ok(oResponse);
+            return Ok(lst);
         }
 
 
-        [HttpGet]
-        public IActionResult GetCommission(CommissionRequest Com)
+        [HttpPost]
+        public async Task<IActionResult> Commission([FromBody] CommissionRequest Com)
         {
             Response oResponse = new Response();
-
+            CommissionResult commission = null;
             try
             {
-
                 CalculateCommission Comm = new CalculateCommission();
 
-                decimal commission = Comm.Commission(Com);
+                commission = await Comm.Commission(Com);
                 
-
                 oResponse.Exit = 1;
                 oResponse.Data = commission;
             }
@@ -86,7 +83,7 @@ namespace TravelAgency.Controllers
                 oResponse.Message = ex.Message;
             }
 
-            return Ok(oResponse);
+            return Ok(commission);
         }
     }
 }

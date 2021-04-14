@@ -11,12 +11,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace TravelAgency
 {
     public class Startup
     {
-        
+        readonly string MiCors = "MiCors";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,10 +29,18 @@ namespace TravelAgency
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<AppDBContexts>(options =>
-            //options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
-           
+            
+            services.AddCors(options => {
+                options.AddPolicy(name: MiCors,
+                                  builder => {
+                                      builder.WithHeaders("*");
+                                      builder.WithOrigins("*");
+                                      builder.WithMethods("*");
+                                  });
+            });
+
             services.AddControllers();
+            //services.AddControllers().AddNewtonsoftJson();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +54,8 @@ namespace TravelAgency
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(MiCors);
 
             app.UseAuthorization();
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 
-namespace DataAccess.Models.Request
+namespace DataAccess.Models.DTO
 {
     public class CommissionRequest
     {
@@ -11,6 +11,6 @@ namespace DataAccess.Models.Request
         public int ClientId { get; set; }
         public int Passengers { get; set; }
         public int Duration { get; set; }
-        public ICollection<Package> Packages { get; set; }
+        public int[] Packages { get; set; }
     }
 }

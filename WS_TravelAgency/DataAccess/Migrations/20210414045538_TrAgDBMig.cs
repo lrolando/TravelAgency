@@ -2,21 +2,21 @@
 
 namespace DataAccess.Migrations
 {
-    public partial class TravelAgencyDBMigration : Migration
+    public partial class TrAgDBMig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Clients",
+                name: "ClientTypes",
                 columns: table => new
                 {
-                    ClientID = table.Column<int>(type: "int", nullable: false)
+                    ClientTypeId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Type = table.Column<string>(type: "varchar(15)", unicode: false, maxLength: 15, nullable: false)
+                    Description = table.Column<string>(type: "varchar(15)", unicode: false, maxLength: 15, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clients", x => x.ClientID);
+                    table.PrimaryKey("PK_ClientTypes", x => x.ClientTypeId);
                 });
 
             migrationBuilder.CreateTable(
@@ -40,7 +40,7 @@ namespace DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Description = table.Column<string>(type: "varchar(250)", unicode: false, maxLength: 250, nullable: false),
                     Type = table.Column<string>(type: "varchar(15)", unicode: false, maxLength: 15, nullable: false),
-                    Category = table.Column<int>(type: "int", unicode: false, maxLength: 5, nullable: false),
+                    Category = table.Column<string>(type: "varchar(1)", unicode: false, maxLength: 1, nullable: true),
                     Price = table.Column<decimal>(type: "decimal(18,2)", unicode: false, maxLength: 15, nullable: false),
                     IDPack = table.Column<int>(type: "int", nullable: false)
                 },
@@ -64,7 +64,7 @@ namespace DataAccess.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Clients");
+                name: "ClientTypes");
 
             migrationBuilder.DropTable(
                 name: "Product");

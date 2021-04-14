@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
-namespace DataAccess.Repository
+namespace DataAccess
 {
     public partial class AppDBContexts : DbContext
     {
@@ -19,14 +19,14 @@ namespace DataAccess.Repository
 
         public DbSet<Product> Product { get; set; }
         public DbSet<Package> Packages { get; set; }
-        public DbSet<Client> Clients { get; set; }
+        public DbSet<ClientType> ClientTypes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-2NNNOP4\\SQLEXPRESS; Initial Catalog=DBTravelAgency; Integrated Security=True;");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-2NNNOP4\\SQLEXPRESS; Initial Catalog=TravelAgencyDB; Integrated Security=True;");
             
             }
         }
@@ -48,8 +48,8 @@ namespace DataAccess.Repository
                     .IsUnicode(false);
 
                 entity.Property(e => e.Category)
-                    .IsRequired()
-                    .HasMaxLength(5)
+                    .IsRequired(false)
+                    .HasMaxLength(1)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Price)
@@ -74,11 +74,11 @@ namespace DataAccess.Repository
 
             });
 
-            modelBuilder.Entity<Client>(entity =>
+            modelBuilder.Entity<ClientType>(entity =>
             {
-                entity.HasKey(e => e.ClientID);
+                entity.HasKey(e => e.ClientTypeId);
 
-                entity.Property(e => e.Type)
+                entity.Property(e => e.Description)
                     .IsRequired()
                     .HasMaxLength(15)
                     .IsUnicode(false);

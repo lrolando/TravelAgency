@@ -5,10 +5,10 @@ using System.Text;
 
 namespace RulesBusiness.Commission.TypeOfClient
 {
-    public class CommissionIndividual
+    public static class CommissionIndividual
     {
 
-        public decimal Hotel(decimal price, int duration)
+        public static decimal Hotel(decimal price, int duration)
         {
             decimal com = 0;
 
@@ -23,7 +23,7 @@ namespace RulesBusiness.Commission.TypeOfClient
             return com;
         }
 
-        public decimal RentCar(decimal price, int category)
+        public static decimal RentCar(decimal price, int category)
         {
 
             decimal com = (price / 100) + (100 * category);
@@ -31,7 +31,7 @@ namespace RulesBusiness.Commission.TypeOfClient
             return com;
         }
 
-        public decimal Ticket(decimal price)
+        public static decimal Ticket(decimal price)
         {
 
             decimal com = price / 10;
