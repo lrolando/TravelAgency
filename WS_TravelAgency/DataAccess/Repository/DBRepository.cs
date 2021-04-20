@@ -8,68 +8,74 @@ using System.Linq;
 
 namespace DataAccess.Repository
 {
-    public class GetFromDB
+    public class DBRepository : IDBRepository
     {
-        public async Task<IEnumerable<ClientType>> ClientTypes()
+
+        private readonly AppDBContexts _appDBContexts;
+
+        public DBRepository(AppDBContexts appDBContexts)
+        {
+            _appDBContexts = appDBContexts;
+
+        }
+
+
+        public async Task<IEnumerable<ClientType>> GetClientTypes()
         {
 
             IEnumerable<ClientType> ty = null;
 
-            using (AppDBContexts db = new AppDBContexts())
-            {
-                ty = await (from a in db.ClientTypes
+           
+                ty = await (from a in _appDBContexts.ClientTypes
                             select a).ToListAsync();
-            }
+            
 
             return ty;
 
         }
 
-        public async Task<IEnumerable<Package>> Packageslist(string name)
+        public async Task<IEnumerable<Package>> GetPackageslist(string name)
         {
 
             IEnumerable<Package> PackList = null;
 
-            using (AppDBContexts db = new AppDBContexts())
-            {
-                PackList = await (from a in db.Packages
+            
+                PackList = await (from a in _appDBContexts.Packages
                                   where a.Namepack.Contains(name)
                                   select a).ToListAsync();
-            }
+            
 
             return PackList;
 
         }
 
-        public async Task<Package> DetailsPackage(Package pack)
+        public async Task<Package> GetDetailsPackage(Package pack)
         {
 
-            using (AppDBContexts db = new AppDBContexts())
-            {
-                pack.Product = await (from a in db.Product
+            
+                pack.Product = await (from a in _appDBContexts.Product
                                       where a.IDPack.Equals(pack.PackageID)
                                       select a).ToListAsync();
-            }
+            
 
             return pack;
 
         }
 
-        public async Task<IEnumerable<Product>> Productlist(int[] packag)
+        public async Task<IEnumerable<Product>> GetProductlist(int[] packag)
         {
 
             IEnumerable<Product> List = null;
 
-            using (AppDBContexts db = new AppDBContexts())
-            {
+            
                 //db.Database.Log() = Console.Write;
-                List = await (from a in db.Product
-                              join b in db.Packages
+                List = await (from a in _appDBContexts.Product
+                              join b in _appDBContexts.Packages
                               on a.IDPack equals b.PackageID
                               where packag.Select(p => p).Contains(b.PackageID)
                               select a).ToListAsync();
 
-            }
+            
 
             return List;
 

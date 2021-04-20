@@ -13,6 +13,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using RulesBusiness.Commission;
+using RulesBusiness.Commission.TypeOfClient;
+using DataAccess.Repository;
+using DataAccess.Models.DTO;
+using DataAccess;
 
 namespace TravelAgency
 {
@@ -40,7 +45,12 @@ namespace TravelAgency
             });
 
             services.AddControllers();
-            //services.AddControllers().AddNewtonsoftJson();
+
+            services.AddScoped<AppDBContexts, AppDBContexts>();
+            services.AddScoped<IDBRepository, DBRepository>();
+            services.AddScoped<ICommission, Commission>();
+            services.AddScoped<ICommissionResult, CommissionResult>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

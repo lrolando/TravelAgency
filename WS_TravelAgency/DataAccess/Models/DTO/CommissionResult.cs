@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataAccess.Models.DTO
 {
-    public class CommissionResult
+    public class CommissionResult : ICommissionResult
     {
 
         public string Message { get; set; }

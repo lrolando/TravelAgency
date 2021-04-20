@@ -85,6 +85,83 @@ namespace DataAccess
 
             });
 
+            modelBuilder.Entity<ClientType>().HasData(
+
+               new ClientType
+               {
+                   ClientTypeId = 1,
+                   Description = "Individual"
+               },
+               new ClientType
+               {
+                   ClientTypeId = 2,
+                   Description = "Corporate"
+               });
+
+
+            modelBuilder.Entity<Package>().HasData(
+
+                new Package
+                {
+                    PackageID = 1,
+                    Namepack = "Cordoba"
+                },
+                new Package
+                {
+                    PackageID = 2,
+                    Namepack = "San Juan"
+                });
+
+
+           modelBuilder.Entity<Product>().HasData(
+
+                new Product
+                {
+                    ProductID = 1,
+                    Description = "Hotel Sol",
+                    Type = "Hotel",
+                    Category = null,
+                    Price = 350,
+                    IDPack = 1
+                },
+                new Product
+                {
+                    ProductID = 2,
+                    Description = "VW Vento",
+                    Type = "RentCar",
+                    Category = "2",
+                    Price = 120,
+                    IDPack = 1
+                },
+                new Product
+                {
+                    ProductID = 3,
+                    Description = "B747",
+                    Type = "Ticket",
+                    Category = null,
+                    Price = 380,
+                    IDPack = 1
+                },
+                new Product
+                {
+                    ProductID = 4,
+                    Description = "A380",
+                    Type = "Ticket",
+                    Category = null,
+                    Price = 120,
+                    IDPack = 2
+                },
+                new Product
+                {
+                    ProductID = 5,
+                    Description = "Renault",
+                    Type = "RentCar",
+                    Category = "3",
+                    Price = 220,
+                    IDPack = 2
+                });
+
+
             OnModelCreatingPartial(modelBuilder);
         }
 

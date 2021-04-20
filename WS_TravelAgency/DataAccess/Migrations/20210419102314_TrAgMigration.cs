@@ -2,7 +2,7 @@
 
 namespace DataAccess.Migrations
 {
-    public partial class TrAgDBMig : Migration
+    public partial class TrAgMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -53,6 +53,36 @@ namespace DataAccess.Migrations
                         principalTable: "Packages",
                         principalColumn: "PackageID",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "ClientTypes",
+                columns: new[] { "ClientTypeId", "Description" },
+                values: new object[,]
+                {
+                    { 1, "Individual" },
+                    { 2, "Corporate" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Packages",
+                columns: new[] { "PackageID", "Namepack" },
+                values: new object[,]
+                {
+                    { 1, "Cordoba" },
+                    { 2, "San Juan" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Product",
+                columns: new[] { "ProductID", "Category", "Description", "IDPack", "Price", "Type" },
+                values: new object[,]
+                {
+                    { 1, null, "Hotel Sol", 1, 350m, "Hotel" },
+                    { 2, "2", "VW Vento", 1, 120m, "RentCar" },
+                    { 3, null, "B747", 1, 380m, "Ticket" },
+                    { 4, null, "A380", 2, 120m, "Ticket" },
+                    { 5, "3", "Renault", 2, 220m, "RentCar" }
                 });
 
             migrationBuilder.CreateIndex(

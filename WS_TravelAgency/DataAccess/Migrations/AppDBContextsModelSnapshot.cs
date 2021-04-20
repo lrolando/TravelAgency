@@ -34,6 +34,18 @@ namespace DataAccess.Migrations
                     b.HasKey("ClientTypeId");
 
                     b.ToTable("ClientTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            ClientTypeId = 1,
+                            Description = "Individual"
+                        },
+                        new
+                        {
+                            ClientTypeId = 2,
+                            Description = "Corporate"
+                        });
                 });
 
             modelBuilder.Entity("DataAccess.Models.Package", b =>
@@ -52,6 +64,18 @@ namespace DataAccess.Migrations
                     b.HasKey("PackageID");
 
                     b.ToTable("Packages");
+
+                    b.HasData(
+                        new
+                        {
+                            PackageID = 1,
+                            Namepack = "Cordoba"
+                        },
+                        new
+                        {
+                            PackageID = 2,
+                            Namepack = "San Juan"
+                        });
                 });
 
             modelBuilder.Entity("DataAccess.Models.Product", b =>
@@ -91,6 +115,50 @@ namespace DataAccess.Migrations
                     b.HasIndex("IDPack");
 
                     b.ToTable("Product");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductID = 1,
+                            Description = "Hotel Sol",
+                            IDPack = 1,
+                            Price = 350m,
+                            Type = "Hotel"
+                        },
+                        new
+                        {
+                            ProductID = 2,
+                            Category = "2",
+                            Description = "VW Vento",
+                            IDPack = 1,
+                            Price = 120m,
+                            Type = "RentCar"
+                        },
+                        new
+                        {
+                            ProductID = 3,
+                            Description = "B747",
+                            IDPack = 1,
+                            Price = 380m,
+                            Type = "Ticket"
+                        },
+                        new
+                        {
+                            ProductID = 4,
+                            Description = "A380",
+                            IDPack = 2,
+                            Price = 120m,
+                            Type = "Ticket"
+                        },
+                        new
+                        {
+                            ProductID = 5,
+                            Category = "3",
+                            Description = "Renault",
+                            IDPack = 2,
+                            Price = 220m,
+                            Type = "RentCar"
+                        });
                 });
 
             modelBuilder.Entity("DataAccess.Models.Product", b =>

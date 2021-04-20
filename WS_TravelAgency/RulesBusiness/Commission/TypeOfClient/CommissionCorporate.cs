@@ -7,6 +7,38 @@ namespace RulesBusiness.Commission.TypeOfClient
 {
     public static class CommissionCorporate
     {
+
+        public static decimal Main(IEnumerable<Product> products, int duration, int passengers)
+        {
+
+            decimal commission = 0;
+
+            foreach (var item in products)
+            {
+                switch (item.Type)
+                {
+                    case "Hotel":
+                        { commission = commission + Hotel(item.Price, duration); };
+                        break;
+
+                    case "RentCar":
+                        { commission = commission + RentCar(item.Price, duration); };
+                        break;
+
+                    case "Ticket":
+                        { commission = commission + Ticket(item.Price); };
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+            commission = (commission * passengers) / 10;
+
+            return commission;
+        }
+
         public static decimal Hotel(decimal price, int duration)
         {
 

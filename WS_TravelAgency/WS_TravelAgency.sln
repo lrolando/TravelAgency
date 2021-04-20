@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelAgency", "TravelAgency\TravelAgency.csproj", "{59B0982B-7A4E-4CBD-99B1-E89E0FF91D60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{B6A4DE44-127B-4250-A33B-2A053E176D2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{B6A4DE44-127B-4250-A33B-2A053E176D2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulesBusiness", "RulesBusiness\RulesBusiness.csproj", "{BE2F7A05-15F8-4D3E-978D-B212742CB139}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RulesBusiness", "RulesBusiness\RulesBusiness.csproj", "{BE2F7A05-15F8-4D3E-978D-B212742CB139}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrAgTestXUnit", "TrAgTestXUnit\TrAgTestXUnit.csproj", "{C5D657E2-1191-4E2E-92B0-D967293D278D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{BE2F7A05-15F8-4D3E-978D-B212742CB139}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE2F7A05-15F8-4D3E-978D-B212742CB139}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE2F7A05-15F8-4D3E-978D-B212742CB139}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5D657E2-1191-4E2E-92B0-D967293D278D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5D657E2-1191-4E2E-92B0-D967293D278D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5D657E2-1191-4E2E-92B0-D967293D278D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5D657E2-1191-4E2E-92B0-D967293D278D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
