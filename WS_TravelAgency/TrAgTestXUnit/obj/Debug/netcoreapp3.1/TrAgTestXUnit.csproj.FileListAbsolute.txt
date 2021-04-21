@@ -148,3 +148,4 @@ C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TrAgTestXU
 C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TrAgTestXUnit\obj\Debug\netcoreapp3.1\TrAgTestXUnit.genruntimeconfig.cache
 C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TrAgTestXUnit\bin\Debug\netcoreapp3.1\Castle.Core.dll
 C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TrAgTestXUnit\bin\Debug\netcoreapp3.1\Moq.dll
+C:\Users\USER\source\repos\glb-bootcamp-net-lsrolando\WS_TravelAgency\TrAgTestXUnit\bin\Debug\netcoreapp3.1\nunit.framework.dll

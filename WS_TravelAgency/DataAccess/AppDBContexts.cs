@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public partial class AppDBContexts : DbContext
+    public partial class AppDBContexts : DbContext, IAppDBContexts
     {
         public AppDBContexts() { }
 

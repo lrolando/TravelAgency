@@ -25,11 +25,9 @@ namespace DataAccess.Repository
 
             IEnumerable<ClientType> ty = null;
 
-           
                 ty = await (from a in _appDBContexts.ClientTypes
                             select a).ToListAsync();
             
-
             return ty;
 
         }
@@ -39,12 +37,10 @@ namespace DataAccess.Repository
 
             IEnumerable<Package> PackList = null;
 
-            
                 PackList = await (from a in _appDBContexts.Packages
                                   where a.Namepack.Contains(name)
                                   select a).ToListAsync();
             
-
             return PackList;
 
         }
@@ -52,12 +48,10 @@ namespace DataAccess.Repository
         public async Task<Package> GetDetailsPackage(Package pack)
         {
 
-            
                 pack.Product = await (from a in _appDBContexts.Product
                                       where a.IDPack.Equals(pack.PackageID)
                                       select a).ToListAsync();
             
-
             return pack;
 
         }
@@ -67,7 +61,6 @@ namespace DataAccess.Repository
 
             IEnumerable<Product> List = null;
 
-            
                 //db.Database.Log() = Console.Write;
                 List = await (from a in _appDBContexts.Product
                               join b in _appDBContexts.Packages
@@ -75,7 +68,6 @@ namespace DataAccess.Repository
                               where packag.Select(p => p).Contains(b.PackageID)
                               select a).ToListAsync();
 
-            
 
             return List;
 

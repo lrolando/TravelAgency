@@ -4,6 +4,7 @@ using DataAccess.Models.DTO;
 using DataAccess.Repository;
 using Microsoft.EntityFrameworkCore;
 using Moq;
+using NUnit.Framework;
 using RulesBusiness.Commission;
 using System;
 using System.Collections.Generic;
@@ -12,65 +13,54 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
+
 namespace TrAgTestXUnit
 {
     public class CommissionTest
     {
 
+        //private readonly Task<IEnumerable<Product>> List = { };
         private Commission comm;
         private Mock<IDBRepository> dbRepositorymock;
+        private Task<IEnumerable<Product>> List;
+
         
-
-        public async void Setup()
+        public void Setup()
         {
-
 
             dbRepositorymock = new Mock<IDBRepository>();
 
-            int[] p = { };
 
-            Product pr1 = new Product();
-            pr1.ProductID = 1;
-            pr1.Description = "Hotel sol";
-            pr1.Type = "Hotel";
-            pr1.Category = "";
-            pr1.Price = 250;
-            pr1.IDPack = 1;
+            //Task<IEnumerable<Product>> List = ;
 
-            Product pr2 = new Product();
-            pr2.ProductID = 1;
-            pr2.Description = "Hotel sol";
-            pr2.Type = "Hotel";
-            pr2.Category = "";
-            pr2.Price = 250;
-            pr2.IDPack = 1;
+            Samples smpl = new Samples();
 
-            List<Product> Prelist = new List<Product>
-            { pr1, pr2 };
+            //List = await (from a in Prelist select a).ToList();
 
-            Task<IEnumerable<Product>> List = null;
-            
-            async List = Prelist.
-            
+            //List = (Task<IEnumerable<Product>>)await GetProducts(smpl.GetSampleProduct());
 
-
-            dbRepositorymock.Setup(c => c.GetProductlist(p)).Returns(List);
-            
-
-
+            dbRepositorymock.Setup(c => c.GetProductlist(It.IsAny<int[]>())).Returns(smpl.GetSampleProduct());
 
             comm = new Commission(dbRepositorymock.Object);
-        }
 
+        }
 
 
         [Fact]
         public void Commission()
         {
 
+            var creq = new CommissionRequest();
 
 
+            int[] rr = { 1, 2 };
+            creq.ClientId = 1;
+            creq.Duration = 3;
+            creq.Passengers = 4;
+            creq.Packages = rr;
 
+
+            var result = comm.GetCommission(creq);
 
 
         }
@@ -80,6 +70,35 @@ namespace TrAgTestXUnit
 
 
 
+
+
+        //public async Task<IEnumerable<Product>> GetProductlist()
+        //{
+        //    IEnumerable<Product> List = null;
+
+        //    Product pr1 = new Product();
+        //    pr1.ProductID = 1;
+        //    pr1.Description = "Hotel sol";
+        //    pr1.Type = "Hotel";
+        //    pr1.Category = "";
+        //    pr1.Price = 250;
+        //    pr1.IDPack = 1;
+
+        //    Product pr2 = new Product();
+        //    pr2.ProductID = 1;
+        //    pr2.Description = "Hotel sol";
+        //    pr2.Type = "Hotel";
+        //    pr2.Category = "";
+        //    pr2.Price = 250;
+        //    pr2.IDPack = 1;
+
+        //    List<Product> Prelist = new List<Product>
+        //    { pr1, pr2 };
+
+        //    List = (from a in Prelist select a);
+
+        //    return List;
+        //}
 
 
 
