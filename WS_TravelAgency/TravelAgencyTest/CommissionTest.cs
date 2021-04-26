@@ -49,8 +49,7 @@ namespace TravelAgencyTest
             creq.ClientId = 1;
             creq.Duration = 5;
             creq.Passengers = 3;
-            int[] rr = { 1, 2 };
-            creq.Packages = rr;
+            creq.Packages = new int[] {1, 2};
 
             decimal expected = 2185.2M;
 

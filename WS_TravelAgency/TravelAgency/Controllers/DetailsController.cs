@@ -27,18 +27,9 @@ namespace TravelAgency.Controllers
         public async Task<IActionResult> Details([FromBody] Package pack)
         {
             
-            Package lst = null;
-            try
-            {
-                
-                lst = await _repositoryDB.GetDetailsPackage(pack);
+            Package lst = await _repositoryDB.GetDetailsPackage(pack);
 
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
+            
             return Ok(lst);
         }
 

@@ -16,6 +16,7 @@ using RulesBusiness.Commission.TypeOfClient;
 using DataAccess.Repository;
 using DataAccess.Models.DTO;
 using DataAccess;
+using Microsoft.AspNetCore.Http;
 
 namespace TravelAgency
 {
@@ -45,6 +46,8 @@ namespace TravelAgency
             });
 
             services.AddControllers();
+            //services.AddControllers(options =>
+            //            options.Filters.Add(new HttpResponseExceptionFilter()));
 
             services.AddScoped<AppDBContexts, AppDBContexts>();
             services.AddScoped<IDBRepository, DBRepository>();
@@ -58,7 +61,16 @@ namespace TravelAgency
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+
+                app.UseExceptionHandler("/error-local-development");
+
+                //app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+
+                app.UseExceptionHandler("/error");
+
             }
 
             app.UseHttpsRedirection();

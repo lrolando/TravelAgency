@@ -34,16 +34,9 @@ namespace TravelAgency.Controllers
         [HttpGet]
         public async Task<IActionResult> ClientTypes()
         {
-            IEnumerable<ClientType> lst = null;
-            try
-            {
-                lst = await _repositoryDB.GetClientTypes();
 
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            IEnumerable<ClientType> lst = await _repositoryDB.GetClientTypes();
+
 
             return Ok(lst);
         }
@@ -53,17 +46,8 @@ namespace TravelAgency.Controllers
         public async Task<IActionResult> PackagesByDescription([FromBody] Package package)
         {
             
-            IEnumerable<Package> lst = null;
+            IEnumerable<Package> lst = await _repositoryDB.GetPackageslist(package.Namepack);
 
-            try
-            {
-                lst = await _repositoryDB.GetPackageslist(package.Namepack);
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
 
             return Ok(lst);
         }
@@ -73,18 +57,10 @@ namespace TravelAgency.Controllers
         public async Task<IActionResult> Commission([FromBody] CommissionRequest Com)
         {
 
-            try
-            {
+            var com = await _commission.GetCommission(Com);
 
-                var com = await _commission.GetCommission(Com);
+            _commissionResult.Message = "Your commission is $" + com.ToString();
 
-                _commissionResult.Message = "Your commission is $" + com.ToString();
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
             
             return Ok(_commissionResult);
         }

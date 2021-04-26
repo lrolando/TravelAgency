@@ -38,7 +38,7 @@ namespace DataAccess.Repository
             IEnumerable<Package> PackList = null;
 
                 PackList = await (from a in _appDBContexts.Packages
-                                  where a.Namepack.Contains(name)
+                                  where a.Namepack.StartsWith(name)
                                   select a).ToListAsync();
             
             return PackList;
